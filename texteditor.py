@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
 import pyttsx
+import pyperclip
+import webbrowser
 
 class app():
     
@@ -32,6 +34,13 @@ class app():
              self.Speak.pack(side="left")
              self.About = Button(text="about me", command=self.about)
              self.About.pack(side="left")
+             self.Copy = Button(text="Copy text", command=self.copytext)
+             self.Copy.pack(side="left")
+             self.Copy = Button(text="Paste text", command=self.Pastetext)
+             self.Copy.pack(side="left")
+             self.webview = Button(text="view in web browser", command=self.webview)
+             self.webview.pack(side="left")
+            
             
         def fileopen(self):
          try:
@@ -79,7 +88,31 @@ class app():
                 
         def about(self):
                     messagebox.showinfo("about", "created by @technowizard")
+        
+        
+        def copytext(self):
+            self.Copiedtext = pyperclip.copy(self.contents.get(1.0,  END))
+                     
+        def Pastetext(self):
+            self.contents.insert(INSERT, pyperclip.paste())
                     
+        def webview(self):
+            self.v = self.fileName.get()
+            with open(self.v, "r") as r:
+                webbrowser.open(self.v)
+                
+                
+        
+    
+        
+
+
+
+
+
+
+
+
 root = Tk()
 App = app(root)
 root.mainloop()
