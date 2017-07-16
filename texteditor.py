@@ -5,7 +5,7 @@ import pyperclip
 import webbrowser
 
 class app():
-    
+        """user interface layout """
         def __init__(self, master):
              frame = Frame(master)
              frame.pack()
@@ -21,9 +21,9 @@ class app():
              self.contents.pack(fill="both")
              self.openfile = Button(text="open", command=self.fileopen)
              self.openfile.pack(side="left")
-             self.save = Button(text="save", command=self.save)
+             self.save = Button(text="add content", command=self.save)
              self.save.pack(side="left")
-             self.fullsave = Button(text="overwrite", command=self.overwrite)
+             self.fullsave = Button(text="save", command=self.overwrite)
              self.fullsave.pack(side="left")
              self.save.pack(side="left")
              self.Newfile = Button(text="new file", command=self.new)
@@ -38,9 +38,10 @@ class app():
              self.Copy.pack(side="left")
              self.Copy = Button(text="Paste text", command=self.Pastetext)
              self.Copy.pack(side="left")
-             self.webview = Button(text="view in web browser", command=self.webview)
+             self.webview = Button(text="web view", command=self.webview)
              self.webview.pack(side="left")
-            
+             
+        """user interface controls and functions"""      
             
         def fileopen(self):
          try:
@@ -82,12 +83,12 @@ class app():
                 messagebox.showwarning("error", "file not found")
                 
         def textSpeak(self):
-                    engine = pyttsx.init()
-                    engine.say(self.contents.get(1.0,  END))
-                    engine.runAndWait()
+                    self.engine = pyttsx.init()
+                    self.engine.say(self.contents.get(1.0,  END))
+                    self.engine.runAndWait()
                 
         def about(self):
-                    messagebox.showinfo("about", "created by @technowizard")
+                    messagebox.showinfo("about", "created by:Technowizard \n\nyear:2017")
         
         
         def copytext(self):
@@ -97,12 +98,14 @@ class app():
             self.contents.insert(INSERT, pyperclip.paste())
                     
         def webview(self):
-            self.v = self.fileName.get()
-            with open(self.v, "r") as r:
-                webbrowser.open(self.v)
-                
-                
-        
+            try:
+                self.v = self.fileName.get()
+                with open(self.v, "r") as r:
+                    webbrowser.open(self.v)
+            except:
+                messagebox.showwarning("error", "file not found")
+            
+                     
     
         
 
