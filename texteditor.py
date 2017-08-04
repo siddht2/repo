@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
-import pyttsx
+import pyttsx3
 import pyperclip
 import webbrowser
 
@@ -83,7 +83,7 @@ class app():
                 messagebox.showwarning("error", "file not found")
                 
         def textSpeak(self):
-                    self.engine = pyttsx.init()
+                    self.engine = pyttsx3.init()
                     self.engine.say(self.contents.get(1.0,  END))
                     self.engine.runAndWait()
                 
