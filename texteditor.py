@@ -3,6 +3,7 @@ from tkinter import messagebox
 import pyttsx3
 import pyperclip
 import webbrowser
+from tkinter import  font
 
 class app():
         """user interface layout """
@@ -10,35 +11,35 @@ class app():
              frame = Frame(master)
              frame.pack()
              root.title("my text editor")
+
              self.fileName = StringVar()
              self.filename = Label(text="filename")
              self.filename.pack(fill="both")
              self.filen = Entry(textvariable=self.fileName, width="20" )
              self.filen.pack(side="top")
-             self.contentdisplay = Label(text="contents")
+             self.contentdisplay = Label(text="contents" )
              self.contentdisplay.pack(fill="both")
              self.contents = Text()
              self.contents.pack(fill="both")
-             self.openfile = Button(text="open", command=self.fileopen)
+             self.openfile = Button(text="open", command=self.fileopen, font="Arial 12")
              self.openfile.pack(side="left")
-             self.save = Button(text="add content", command=self.save)
+             self.save = Button(text="add content", command=self.save , font="Arial 12")
              self.save.pack(side="left")
-             self.fullsave = Button(text="save", command=self.overwrite)
+             self.fullsave = Button(text="save", command=self.overwrite , font="Arial 12")
              self.fullsave.pack(side="left")
-             self.save.pack(side="left")
-             self.Newfile = Button(text="new file", command=self.new)
+             self.Newfile = Button(text="new file", command=self.new, font="Arial 12")
              self.Newfile.pack(side="left")
-             self.cleartext = Button(text="clear txt", command=self.clearfile)
+             self.cleartext = Button(text="clear txt", command=self.clearfile, font="Arial 12")
              self.cleartext.pack(side="left")
-             self.Speak = Button(text="speak text", command=self.textSpeak)
+             self.Speak = Button(text="speak text", command=self.textSpeak, font="Arial 12")
              self.Speak.pack(side="left")
-             self.About = Button(text="about me", command=self.about)
+             self.About = Button(text="about me", command=self.about, font="Arial 12")
              self.About.pack(side="left")
-             self.Copy = Button(text="Copy text", command=self.copytext)
+             self.Copy = Button(text="Copy text", command=self.copytext, font="Arial 12")
              self.Copy.pack(side="left")
-             self.Copy = Button(text="Paste text", command=self.Pastetext)
+             self.Copy = Button(text="Paste text", command=self.Pastetext, font="Arial 12")
              self.Copy.pack(side="left")
-             self.webview = Button(text="web view", command=self.webview)
+             self.webview = Button(text="web view", command=self.webview, font="Arial 12")
              self.webview.pack(side="left")
              
         """user interface controls and functions"""      
