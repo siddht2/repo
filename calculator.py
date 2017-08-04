@@ -1,6 +1,6 @@
 from tkinter import *
 from fractions import *
-from easygui import *
+from tkinter import messagebox
 class app():
         
         def __init__(self, master):
@@ -68,10 +68,13 @@ class app():
              else: 
                 self.v = self.r.set(str(self.r3))     
         def div(self):
-             self.x2 = str(self.x.get())
-             self.x3 = str(self.y.get())
-             self.r3 = int(self.x2) /  int(self.x3)  
-             self.v = self.r.set(str(self.r3))     
+            try:
+                self.x2 = str(self.x.get())
+                self.x3 = str(self.y.get())
+                self.r3 = int(self.x2) /  int(self.x3)
+                self.v = self.r.set(str(self.r3))
+            except:
+                    messagebox.showerror("error","you can't divide by 0")
         
         def ex(self):
              self.x2 = str(self.x.get())
