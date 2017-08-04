@@ -1,6 +1,6 @@
 from tkinter import *
-import easygui as g
-import pyttsx
+from tkinter import  messagebox
+import pyttsx3
 import webbrowser as search
 import speech_recognition as sr
 class app():
@@ -9,7 +9,7 @@ class app():
              frame = Frame(master, width=400, height=400)
              frame.pack()
             
-             engine = pyttsx.init()
+             engine = pyttsx3.init()
              engine.say("welcome to my app")
              engine.runAndWait()
              self.number = 0
@@ -46,20 +46,20 @@ class app():
              self.voiceconverter = Button(frame, text="voice to text",   command=self.v2t)
              self.voiceconverter.pack(side="left")
              
-             
+
              
              
         def add(self):
             v = self.n.get();
             if self.number >= 1000:
                 
-                engine = pyttsx.init()
+                engine = pyttsx3.init()
                 engine.say("action not allowed")
                 engine.runAndWait()
-                g.msgbox("can not go higher")
+                messagebox.showerror("can not go higher")
             else:
                 self.number+=1
-                engine = pyttsx.init()
+                engine = pyttsx3.init()
                 engine.say(str(self.number))
                 self.n.set(self.number)
                 engine.runAndWait()
@@ -67,13 +67,13 @@ class app():
         def remove(self):
             v = self.n.get();
             if self.number < 1 :
-                engine = pyttsx.init()
+                engine = pyttsx3.init()
                 engine.say("action not allowed")
                 engine.runAndWait()
                 self.n.set(v)
             else:
                 self.number-=1
-                engine = pyttsx.init()
+                engine = pyttsx3.init()
                 engine.say(str(self.number))
                 engine.runAndWait()
                 self.n.set(self.number)
@@ -83,15 +83,15 @@ class app():
                 v = self.n.get();
                 response = ["hello","what are you"]
                 if v == response[0]:
-                    engine = pyttsx.init()
+                    engine = pyttsx3.init()
                     engine.say("hello creator")
                     engine.runAndWait()
                 elif v == response[1]:
-                    engine = pyttsx.init()
+                    engine = pyttsx3.init()
                     engine.say("i am a bot")
                     engine.runAndWait()
                 else:
-                    engine = pyttsx.init()
+                    engine = pyttsx3.init()
                     engine.say(v)
                     engine.runAndWait()
                     
@@ -134,7 +134,7 @@ class app():
                     self.n.get();
                     fb_obj.close()
                     print(content)
-                    engine = pyttsx.init()
+                    engine = pyttsx3.init()
                     engine.say(content)
                     engine.runAndWait()
                         
@@ -160,7 +160,7 @@ class app():
                 fb_obj.close()
                 self.n.set("")
         def aboutme(self):
-                engine = pyttsx.init()
+                engine = pyttsx3.init()
                 engine.say("I am austin heisley cook.  I program in python. my  mind is power my power is mind")
                 engine.runAndWait()
         def google(self):
@@ -170,14 +170,14 @@ class app():
                 elif v == "invalid search!":
                     self.n.set("")
                 else:
-                    search.open("https://www.google.com/search?q=" + v)
+                    search.open_new("https://www.google.com/search?q=" + v)
         def v2t(self):
             listening = True;
             while listening:
                 r = sr.Recognizer()
                 with sr.Microphone() as source:
                     audio = r.listen(source)
-                    engine = pyttsx.init()
+                    engine = pyttsx3.init()
                     text = r.recognize_google(audio)
                     if text == "quit listening":
                         listening = False
