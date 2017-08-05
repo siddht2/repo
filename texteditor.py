@@ -41,7 +41,8 @@ class app():
              self.Copy.pack(side="left")
              self.webview = Button(text="web view", command=self.webview, font="Arial 12")
              self.webview.pack(side="left")
-             
+             self.search = Button(text="search", command=self.searchit, font="Arial 12")
+             self.search.pack(side="left")
         """user interface controls and functions"""      
             
         def fileopen(self):
@@ -102,10 +103,13 @@ class app():
             try:
                 self.v = self.fileName.get()
                 with open(self.v, "r") as r:
-                    webbrowser.open(self.v)
+                    webbrowser.open_new(self.v)
             except:
                 messagebox.showwarning("error", "file not found")
-            
+
+        def searchit(self):
+            self.v = self.fileName.get()
+            webbrowser.open_new_tab(self.v)
                      
     
         
