@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+
 import pyttsx3
 import pyperclip
 import webbrowser
@@ -11,7 +12,8 @@ class app():
              frame = Frame(master)
              frame.pack()
              root.title("my text editor")
-
+             self.scroll=Scrollbar(master)
+             self.scroll.pack(side="right")
              self.fileName = StringVar()
              self.filename = Label(text="filename")
              self.filename.pack(fill="both")
@@ -109,7 +111,7 @@ class app():
 
         def searchit(self):
             self.v = self.fileName.get()
-            webbrowser.open_new_tab(self.v)
+            webbrowser.open_new_tab("https://www.google.com/search?q=" + self.v)
                      
     
         
