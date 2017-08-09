@@ -1,7 +1,7 @@
 class Car():
     """A simple attempt to represent a car"""
     def __init__(self, make, model, year):
-        self.make - make
+        self.make = make
         self.model = model
         self.year = year
         self.odometer_reading = 0
@@ -21,11 +21,21 @@ class Car():
             print("you can't roll back an odometer")
 
 
-     def increment_odometer(self, miles):
+    def increment_odometer(self, miles):
         self.odometer_reading += miles
 
 
 
 
-    mycar = Car("mitsubishi", "outback", "2015")
-    mycar.get_descriptive_name()_
+
+
+
+
+
+
+mycar = Car("mitsubishi", "outback", "2015")
+
+
+
+
+print(mycar.get_descriptive_name())
