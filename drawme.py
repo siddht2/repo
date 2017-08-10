@@ -33,7 +33,7 @@ class drawing_app:
         self.right.grid(row=1, column=2)
 
         self.forward = Button(master,text="forward", command=self.goforward)
-        self.forward.grid(row=1, column=3)
+        self.forward.grid(row=1, column=3, sticky=E)
 
         self.backward = Button(master,text="backward", command=self.gobackward)
         self.backward.grid(row=1, column=4)
