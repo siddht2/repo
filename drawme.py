@@ -40,7 +40,7 @@ class drawing_app:
 
         self.save = Button(master,text="save", command=self.saveimage)
         self.save.grid(row=1, column=5)
-
+        self
 
     def goright(self):
       try:
