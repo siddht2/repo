@@ -23,24 +23,34 @@ class drawing_app:
         self.colorentry = Entry(master)
         self.colorentry.grid(row=4, column=5)
 
-        self.title = Label(master,text="my drawing app with turtle")
+        self.title = Label(master, text="my drawing app with turtle")
         self.title.grid(row=0, column=3)
 
-        self.left = Button(master,text="left", command=self.goleft)
+        self.left = Button(master, text="left", command=self.goleft)
         self.left.grid(row=1, column=1)
 
-        self.right = Button(master,text="right", command=self.goright)
+        self.right = Button(master, text="right", command=self.goright)
         self.right.grid(row=1, column=2)
 
-        self.forward = Button(master,text="forward", command=self.goforward)
+        self.forward = Button(master, text="forward", command=self.goforward)
         self.forward.grid(row=1, column=3, sticky=E)
 
-        self.backward = Button(master,text="backward", command=self.gobackward)
+        self.backward = Button(master, text="backward", command=self.gobackward)
         self.backward.grid(row=1, column=4)
 
-        self.save = Button(master,text="save", command=self.saveimage)
+        self.save = Button(master, text="save", command=self.saveimage)
         self.save.grid(row=1, column=5)
-        self
+
+        self.stop = Button(master, text="exit", command=sys.exit)
+        self.stop.grid(row=5, column=5)
+
+        self.dissapear = Button(master, text="hide", command=self.hide)
+        self.dissapear.grid(row=6, column=1)
+
+        self.show = Button(master, text="show", command=self.appear)
+        self.show.grid(row=6, column=2, stick=N + E)
+
+
 
     def goright(self):
       try:
@@ -78,9 +88,29 @@ class drawing_app:
        turtle.color(color)
 
     def saveimage(self):
-        ts = turtle.getscreen()
-        ts.getcanvas().postscript(file="c:\\users\owner\\pictures\img.jpg")
-        mbx.showinfo("done","image is saved")
+        self.ts = turtle.getscreen()
+        self.ts.getcanvas().postscript(file="c:\\users\owner\\pictures\img.jpg")
+        self.mbx.showinfo("done","image is saved")
+
+    def hide(self):
+        turtle.ht()
+
+    def appear(self):
+        turtle.st()
+
+    def reset(self):
+        turtle.penup()
+        self.start = (11.22, 233.22)
+        turtle.goto(self.start)
+        turtle.pendown()
+        turtle.st()
+
+    def saveimage(self):
+        self.ts = turtle.getscreen()
+        self.ts.getcanvas().postscript(file="img.ps")
+
+
+
 
 
 root = Tk()
