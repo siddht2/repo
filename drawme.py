@@ -11,6 +11,8 @@ import sys
 class drawing_app:
     def __init__(self, master):
 
+        turtle.position()
+        (11.122,122.122)
         # Initiate environment
         self.speedSet =  Entry(master)
         self.speedSet.grid(row=3, column=5)
@@ -39,7 +41,7 @@ class drawing_app:
         self.backward.grid(row=1, column=4)
 
         self.save = Button(master, text="save", command=self.saveimage)
-        self.save.grid(row=1, column=5)
+        self.save.grid(row=6, column=3, sticky=E)
 
         self.stop = Button(master, text="exit", command=sys.exit)
         self.stop.grid(row=5, column=5)
@@ -50,7 +52,8 @@ class drawing_app:
         self.show = Button(master, text="show", command=self.appear)
         self.show.grid(row=6, column=2, stick=N + E)
 
-
+        self.restart = Button(master, text="resetP", command=self.reset)
+        self.restart.grid(row=6, column=3, sticky=E)
 
     def goright(self):
       try:
@@ -100,7 +103,7 @@ class drawing_app:
 
     def reset(self):
         turtle.penup()
-        self.start = (11.22, 233.22)
+        self.start = (11.122,122.122)
         turtle.goto(self.start)
         turtle.pendown()
         turtle.st()
