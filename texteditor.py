@@ -5,7 +5,8 @@ import pyttsx3
 import pyperclip
 import webbrowser
 from tkinter import  font
-
+import sys
+#modules_used
 class app():
         """user interface layout """
         def __init__(self, master):
@@ -45,6 +46,9 @@ class app():
              self.webview.pack(side="left")
              self.search = Button(text="search", command=self.searchit, font="Arial 12")
              self.search.pack(side="left")
+             self.Exit = Button(text="exit", command=self.Exitprogram, font="Arial 12")
+             self.Exit.pack(side="left")
+
         """user interface controls and functions"""      
             
         def fileopen(self):
@@ -113,7 +117,8 @@ class app():
             self.v = self.fileName.get()
             webbrowser.open_new_tab("https://www.google.com/search?q=" + self.v)
                      
-    
+        def Exitprogram(self):
+            sys.exit()
         
 
 

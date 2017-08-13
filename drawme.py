@@ -41,10 +41,10 @@ class drawing_app:
         self.backward.grid(row=1, column=4)
 
         self.save = Button(master, text="save", command=self.saveimage)
-        self.save.grid(row=6, column=3, sticky=E)
+        self.save.grid(row=6, column=4, sticky=W)
 
         self.stop = Button(master, text="exit", command=sys.exit)
-        self.stop.grid(row=5, column=5)
+        self.stop.grid(row=6, column=6)
 
         self.dissapear = Button(master, text="hide", command=self.hide)
         self.dissapear.grid(row=6, column=1)
@@ -53,18 +53,20 @@ class drawing_app:
         self.show.grid(row=6, column=2, stick=N + E)
 
         self.restart = Button(master, text="resetP", command=self.reset)
-        self.restart.grid(row=6, column=3, sticky=E)
+        self.restart.grid(row=6, column=5, sticky=E)
 
+        self.currentP = Button(text="show current position", command=self.showcurrent)
+        self.currentP.grid(row=7, column=5)
     def goright(self):
       try:
-        speed = int(self.speedSet.get())
+        speed = float(self.speedSet.get())
         turtle.right(speed)
       except:
           mbx.showerror("error", " the input  was not a numerical character")
 
     def goleft(self):
       try:
-         speed = int(self.speedSet.get())
+         speed = float(self.speedSet.get())
          turtle.left(speed)
       except:
          mbx.showerror("error"," the input  was not a numerical character")
@@ -72,7 +74,7 @@ class drawing_app:
 
     def goforward(self):
       try:
-        speed = int(self.speedSet.get())
+        speed = float(self.speedSet.get())
         turtle.forward(speed)
       except:
         mbx.showerror("error", " the input  was not a numerical character")
@@ -81,7 +83,7 @@ class drawing_app:
 
     def gobackward(self):
       try:
-        speed = int(self.speedSet.get())
+        speed = float(self.speedSet.get())
         turtle.backward(speed)
       except:
         mbx.showerror("error", " the input  was not a numerical character")
@@ -112,6 +114,9 @@ class drawing_app:
         self.ts = turtle.getscreen()
         self.ts.getcanvas().postscript(file="img.ps")
 
+    def showcurrent(self):
+        self.current = turtle.position()
+        mbx.showinfo("current coordinates", self.current)
 
 
 
