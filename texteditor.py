@@ -9,19 +9,17 @@ import sys
 #modules_used
 class app():
         """user interface layout """
-        def __init__(self, master):
-             frame = Frame(master)
+        def __init__(self, frame):
+             frame = Frame()
              frame.pack()
              root.title("my text editor")
-             self.scroll=Scrollbar(master)
-             self.scroll.pack(side="right")
              self.fileName = StringVar()
              self.filename = Label(text="filename")
              self.filename.pack(fill="both")
-             self.filen = Entry(textvariable=self.fileName, width="20" )
+             self.filen = Entry(textvariable=self.fileName, width="20")
              self.filen.pack(side="top")
-             self.contentdisplay = Label(text="contents" )
-             self.contentdisplay.pack(fill="both")
+             self.contentdisplay = Label(text="contents", font="Arial 12"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         )
+             self.contentdisplay.pack(fill="both", padx=19)
              self.contents = Text()
              self.contents.pack(fill="both")
              self.openfile = Button(text="open", command=self.fileopen, font="Arial 12")

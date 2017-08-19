@@ -8,11 +8,17 @@ import sys
 
 
 
+
 class drawing_app:
     def __init__(self, master):
-
-        turtle.position()
-        (11.122,122.122)
+        root.title("my drawing app  ")
+        self.canvas = Canvas(master, bg="white", width=500, height=500, highlightthickness=0)
+        self.canvas.grid(column=3, row=4)
+        self.t = turtle.RawTurtle(self.canvas)
+        self.t.position()
+        self.x  =  00.00
+        self.y  = 00.00
+        (self.x,self.y)
         # Initiate environment
         self.speedSet =  Entry(master)
         self.speedSet.grid(row=3, column=5)
@@ -57,25 +63,32 @@ class drawing_app:
 
         self.currentP = Button(text="show current position", command=self.showcurrent)
         self.currentP.grid(row=7, column=5)
+
+        if self.x == 0.124:
+            self.t.penup()
+            self.t.goto(340.0,00,0)
+            self.t.pendown()
+
+
     def goright(self):
       try:
-        speed = float(self.speedSet.get())
-        turtle.right(speed)
+        speed = int(self.speedSet.get())
+        self.t.right(speed)
       except:
           mbx.showerror("error", " the input  was not a numerical character")
 
     def goleft(self):
       try:
-         speed = float(self.speedSet.get())
-         turtle.left(speed)
+         speed = int(self.speedSet.get())
+         self.t.left(speed)
       except:
          mbx.showerror("error"," the input  was not a numerical character")
 
 
     def goforward(self):
       try:
-        speed = float(self.speedSet.get())
-        turtle.forward(speed)
+        speed = int(self.speedSet.get())
+        self.t.forward(speed)
       except:
         mbx.showerror("error", " the input  was not a numerical character")
 
@@ -83,41 +96,37 @@ class drawing_app:
 
     def gobackward(self):
       try:
-        speed = float(self.speedSet.get())
-        turtle.backward(speed)
+        speed = int(self.speedSet.get())
+        self.t.backward(speed)
       except:
         mbx.showerror("error", " the input  was not a numerical character")
 
     def setcolor(self):
        color = self.colorentry.get()
-       turtle.color(color)
+       self.t.color(color)
 
     def saveimage(self):
-        self.ts = turtle.getscreen()
-        self.ts.getcanvas().postscript(file="c:\\users\owner\\pictures\img.jpg")
-        self.mbx.showinfo("done","image is saved")
+        self.ts = self.t.getscreen()
+        self.ts.getcanvas().postscript(file="img.ps")
+        mbx.showinfo("done","image is saved")
 
     def hide(self):
-        turtle.ht()
+        self.t.ht()
 
     def appear(self):
-        turtle.st()
+        self.t.st()
 
     def reset(self):
-        turtle.penup()
-        self.start = (11.122,122.122)
-        turtle.goto(self.start)
-        turtle.pendown()
-        turtle.st()
+        self.t.penup()
+        self.start = (000.00,00.00)
+        self.t.goto(self.start)
+        self.t.pendown()
+        self.t.st()
 
-    def saveimage(self):
-        self.ts = turtle.getscreen()
-        self.ts.getcanvas().postscript(file="img.ps")
 
     def showcurrent(self):
-        self.current = turtle.position()
-        mbx.showinfo("current coordinates", self.current)
-
+        self.current = self.t.position()
+        mbx.showinfo("current coprdinates", self.current)
 
 
 
