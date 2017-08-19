@@ -24,7 +24,7 @@ class app():
              self.expo.pack(side="left")
              self.check = Button(frame, text="x|y", fg="red", border=1, command=self.fractions)
              self.check.pack(side="left")
-             self.button3 = Button(frame, text="quit", fg="purple", border=4, command=frame.quit)
+             self.button3 = Button(frame, text="quit", fg="red", bg="red", border=1, command=frame.quit)
              self.button3.pack(side="left")
              #numbers calculate
              self.x = StringVar(str(""))
