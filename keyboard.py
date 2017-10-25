@@ -1,9 +1,9 @@
-
+#hey feel free if you want add anything
 from tkinter import  *
 import os
 import  pyautogui
 class Keyboard:
-    #initialize_nvironment
+    #initialize_environment
     def __init__(self, master):
         window = Frame(master, width=30, height=90)
         window.grid()
@@ -29,6 +29,8 @@ class Keyboard:
         self.r_key.grid(row=1, column=4)
         self.t_key = Button(master, text="t", command=self.presskey_t)
         self.t_key.grid(row=1, column=5)
+        self.u_key = Button(master), text="u" command=self.presskey_u)
+        self.u_key.grid(row=1, column=6)
 
     #keyboard_actions#
     def presskey_1(self):
@@ -76,6 +78,10 @@ class Keyboard:
         x = pyautogui.position()
         pyautogui.click(x)
         pyautogui.press("t", interval=0.1)
+    def presskey_u(self):
+        x = pyauotgui.position()
+        pyautogui.click(x)
+        pyautogui("u", interval=0.1)
 
 
 root = Tk()
