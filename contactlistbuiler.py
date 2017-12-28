@@ -11,7 +11,6 @@ class Contactcreator:
         root.geometry("290x280")
         root.title("contact creator")
         root.resizable(0,0)
-        ttk.Style().configure("TFrame", )
         ttk.Style().configure("TLabel", relief="raised", background="#0ff", font=self.Font)
         ttk.Style().configure("TEntry", relief="raised",background="#aff", font=self.Font)
         ttk.Style().configure("TButton", relief="raised", background="#aff", font=self.Bsize)
