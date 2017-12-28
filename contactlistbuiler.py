@@ -7,16 +7,17 @@ class Contactcreator:
     def __init__(self):
         """setup environment"""
         self.Font = ["verdena 14"]
-        self.Bsize = ["verdena 12"]
-        root.geometry("200x280")
+        self.Bsize = ["verdena 16"]
+        root.geometry("290x280")
         root.title("contact creator")
         root.resizable(0,0)
         ttk.Style().configure("TFrame", )
         ttk.Style().configure("TLabel", relief="raised", background="#0ff", font=self.Font)
         ttk.Style().configure("TEntry", relief="raised",background="#aff", font=self.Font)
         ttk.Style().configure("TButton", relief="raised", background="#aff", font=self.Bsize)
-        self.lsize = 10
-        self.esize = 18
+        self.lsize = 16
+        self.esize = 28
+        self.bsize = 15
         menu = Menu(root)
         root.config(menu=menu)
         filemenu = Menu(menu)
@@ -38,7 +39,7 @@ class Contactcreator:
         self.Email.pack(side="top")
         self.email = ttk.Entry(width=self.esize)
         self.email.pack()
-        self.Save = ttk.Button(text="save data", command=self.save)
+        self.Save = ttk.Button(text="save data", command=self.save, width=self.bsize)
         self.Save.pack(side="top")
     """main function for creating contact data"""
     def save(self):
