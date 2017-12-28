@@ -31,7 +31,7 @@ class Contactcreator:
         self.contactname.pack(side="top")
         self.name = ttk.Entry(width=self.esize)
         self.name.pack()
-        self.phonenumber = ttk.Label(text="phone#", width=self.lsize) 
+        self.phonenumber = ttk.Label(text="phonenumber", width=self.lsize) 
         self.phonenumber.pack(side="top")
         self.number = ttk.Entry(width=self.esize)
         self.number.pack()
